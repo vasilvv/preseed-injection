@@ -1,0 +1,44 @@
+--- img.orig/adtxt.cfg
++++ img/adtxt.cfg
+@@ -5,5 +5,6 @@
+ include rqtxt.cfg
+ label auto
+ 	menu label ^Automated install
++	menu default
+ 	kernel linux
+ 	append auto=true priority=critical vga=788 initrd=initrd.gz -- quiet 
+--- img.orig/menu.cfg
++++ img/menu.cfg
+@@ -4,6 +4,7 @@
+ menu title Debian GNU/Linux installer boot menu
+ include stdmenu.cfg
+ include txt.cfg
++include adtxt.cfg
+ include amdtxt.cfg
+ include gtk.cfg
+ include amdgtk.cfg
+@@ -13,7 +14,6 @@
+ 	label mainmenu
+ 		menu label ^Back..
+ 		menu exit
+-	include adtxt.cfg
+ 	include amdadtxt.cfg
+ 	include adgtk.cfg
+ 	include amdadgtk.cfg
+--- img.orig/txt.cfg
++++ img/txt.cfg
+@@ -1,6 +1,5 @@
+ default install
+ label install
+ 	menu label ^Install
+-	menu default
+ 	kernel linux
+ 	append vga=788 initrd=initrd.gz -- quiet 
+--- img.orig/isolinux.cfg
++++ img/isolinux.cfg
+@@ -2,4 +2,4 @@
+ include menu.cfg
+ default vesamenu.c32
+ prompt 0
+-timeout 0
++timeout 1
